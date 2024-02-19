@@ -1,0 +1,60 @@
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-success"  routerLink="/collect-data" >Add Data</button>
+        </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>I.D</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>File_Path</th>
+          <th>Video_link</th>
+          <th>Help_Comment</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data,let i=index">
+          <th>{{ i+1 }}</th>
+          <th>{{item.id}}</th>
+          <td>{{ item.title }}</td>
+          <td>{{ item.description }}</td>
+          <td>{{ item.file_path }}</td>
+          <td>{{ item.video_link }}</td>
+          <td>{{ item.help_comment }}</td>
+          <td>
+            <button  class="btn btn-info" style="cursor: pointer;" [routerLink]="['./data/',item.id]">View</button>
+            <button  class="btn btn-primary mx-3" mstyle="cursor: pointer; " [routerLink]="['./edit/',item.id]">Edit</button>
+            <button  class="btn btn-danger mx-3"style="cursor: pointer;" [routerLink]="['./delete/',item.id]">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+
+
+    
+  
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
